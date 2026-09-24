@@ -10,3 +10,5 @@ npm run dev
 ```
 
 Open the URL prints in the terminal.
+
+Also hosted on Netlify at https://textdeformatter.netlify.app

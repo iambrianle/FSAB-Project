@@ -3,14 +3,14 @@ import "./App.css";
 
 function countWords(s) {
   let count = 0;
-  let inWord = false;
+  let readingWord = false;
 
   for (let i = 0; i < s.length; i++) {
     if (s[i] === " " || s[i] === "\n" || s[i] === "\t") {
-      inWord = false;
-    } else if (inWord === false) {
+      readingWord = false;
+    } else if (readingWord === false) {
       count++;
-      inWord = true;
+      readingWord = true;
     }
   }
 
@@ -32,22 +32,13 @@ function App() {
     let newtext = text;
 
     if (spaceBox) {
-      let fixed = "";
-      let lastWasSpace = false;
+      newtext = newtext.replaceAll("\t", " ");
 
-      for (let i = 0; i < newtext.length; i++) {
-        if (newtext[i] === " " || newtext[i] === "\t") {
-          if (lastWasSpace === false) {
-            fixed += " ";
-          }
-          lastWasSpace = true;
-        } else {
-          fixed += newtext[i];
-          lastWasSpace = false;
-        }
+      while (newtext.includes("  ")) {
+        newtext = newtext.replaceAll("  ", " ");
       }
 
-      newtext = fixed.trim();
+      newtext = newtext.trim();
     }
 
     if (lineBox) {
@@ -68,11 +59,11 @@ function App() {
     }
 
     if (punctBox) {
-      let marks = ".,!?;:'\"()-";
+      let punctuation = ".,!?;:'\"()-[]{}<>/\\|@#$%^&*_+=~`•…–—“”‘’©®™�";
       let fixed = "";
 
       for (let i = 0; i < newtext.length; i++) {
-        if (marks.includes(newtext[i]) === false) {
+        if (punctuation.includes(newtext[i]) === false) {
           fixed += newtext[i];
         }
       }
@@ -89,7 +80,6 @@ function App() {
     if (oldresult !== null) {
       setResult(oldresult);
       setOldResult(null);
-      setMessage("");
     }
   }
 
@@ -162,7 +152,7 @@ function App() {
             checked={punctBox}
             onChange={(event) => setPunctBox(event.target.checked)}
           />
-          Remove punctuation
+          Remove punctuation and symbols
         </label>
       </div>
 
@@ -192,7 +182,6 @@ function App() {
       <button onClick={copyText} disabled={result === ""}>
         Copy result
       </button>
-
       <p>{message}</p>
     </div>
   );

@@ -1,0 +1,85 @@
+:root {
+  font-family: Arial, sans-serif;
+  color: #222222;
+  background-color: #eeeeee;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: #eeeeee;
+}
+
+#root {
+  width: 100%;
+}
+
+.app {
+  box-sizing: border-box;
+  width: 650px;
+  max-width: 90%;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: white;
+  border: 1px solid #999999;
+}
+
+h1 {
+  color: black;
+}
+
+h2 {
+  margin-bottom: 8px;
+  font-size: 18px;
+}
+
+label {
+  display: block;
+  margin-top: 16px;
+  margin-bottom: 6px;
+}
+
+textarea {
+  box-sizing: border-box;
+  width: 100%;
+  height: 120px;
+  padding: 8px;
+  font-family: Arial, sans-serif;
+  font-size: 15px;
+  color: black;
+  border: 1px solid #777777;
+}
+
+.check-options label {
+  margin: 8px 0;
+}
+
+.check-options input {
+  margin-right: 8px;
+}
+
+.buttons {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin: 16px 0;
+}
+
+button {
+  padding: 8px 12px;
+  color: black;
+  background-color: #dddddd;
+  border: 1px solid #777777;
+  border-radius: 0;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #cccccc;
+}
+
+button:disabled {
+  color: #777777;
+  cursor: not-allowed;
+}
